@@ -26,10 +26,10 @@ return {
     dashboard.section.header.val = vim.split(logo, "\n")
     -- stylua: ignore
     dashboard.section.buttons.val = {
-      dashboard.button("c", " " .. " Config",          "<cmd> lua require('lazyvim.util').telescope.config_files()() <cr>"),
       dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("persistence").load() <cr>]]),
-      dashboard.button("x", " " .. " Lazy Extras",     "<cmd> LazyExtras <cr>"),
-      dashboard.button("l", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),
+      dashboard.button("x", " " .. " Extras",     "<cmd> LazyExtras <cr>"),
+      dashboard.button("l", "󰒲 " .. " Manager",            "<cmd> Lazy <cr>"),
+      dashboard.button("m", " " .. " Mason",            "<cmd> Mason <cr>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
       button.opts.hl = "AlphaButtons"
@@ -62,13 +62,7 @@ return {
       callback = function()
         local stats = require("lazy").stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        dashboard.section.footer.val = "⚡ Neovim loaded "
-          .. stats.loaded
-          .. "/"
-          .. stats.count
-          .. " plugins in "
-          .. ms
-          .. "ms"
+        dashboard.section.footer.val = " Neovim loaded " .. "in " .. ms .. "ms"
         pcall(vim.cmd.AlphaRedraw)
       end,
     })

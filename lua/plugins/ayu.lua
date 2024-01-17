@@ -1,7 +1,7 @@
 return {
 
   { "ayu-theme/ayu-vim" },
-  -- Configure LazyVim to load gruvbox
+  -- Configure LazyVim to load ayu
   {
     "LazyVim/LazyVim",
 
